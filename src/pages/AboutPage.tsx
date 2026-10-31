@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { ScreenLayout } from "../components/layout/ScreenLayout";
 import { ArcanaCard, Highlight } from "../components/ornaments/Ornaments";
 import { menuItem } from "../data/menu";
-import { attributes, goals, profile, records, timeline, traits } from "../data/profile";
+import { goals, profile, records, timeline, traits } from "../data/profile";
 import { useLang } from "../i18n/lang";
 import { ui } from "../i18n/ui";
 
@@ -50,21 +50,6 @@ export function AboutPage() {
             </ul>
           </section>
 
-          {/* Base stats */}
-          <section className="panel rise" style={{ "--i": 5 } as CSSProperties}>
-            <h2 className="panel__title">{t(ui.baseStats)}</h2>
-            <ul className="stats">
-              {attributes.map((a, i) => (
-                <li key={i} className="stat" style={{ "--v": a.value / 100, "--k": i } as CSSProperties}>
-                  <span className="stat__name">{t(a.name)}</span>
-                  <span className="stat__bar" aria-hidden="true" />
-                  <span className="stat__value">{a.value}</span>
-                  <span className="stat__note">{t(a.note)}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="panel__foot">{t(ui.statsNote)}</p>
-          </section>
         </div>
       </div>
 

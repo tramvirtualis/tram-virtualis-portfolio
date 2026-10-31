@@ -13,11 +13,6 @@ export const ui = {
   downloadCv: { en: "Download CV", vi: "Tải CV" },
 
   // Profile (status screen)
-  baseStats: { en: "Base stats", vi: "Chỉ số cơ bản" },
-  statsNote: {
-    en: "Self-assessed — where I'm strongest today.",
-    vi: "Tự đánh giá — thế mạnh hiện tại của tôi.",
-  },
   classLabel: { en: "Class", vi: "Lớp" },
   arcanaTitle: { en: "THE DEVELOPER", vi: "LẬP TRÌNH VIÊN" },
   arcanaNote: {

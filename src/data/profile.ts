@@ -44,19 +44,6 @@ export const records: { label: Text; value: Text }[] = [
   },
 ];
 
-// Stat bars are a self-assessment; tune the values freely (0–100).
-export const attributes: { name: Text; note: Text; value: number }[] = [
-  { name: "Backend", note: "Java · Spring Boot · REST", value: 84 },
-  { name: "Frontend", note: "React · TypeScript · Tailwind", value: 80 },
-  { name: { en: "Data", vi: "Dữ liệu" }, note: "MySQL · PostgreSQL · Redis", value: 70 },
-  { name: { en: "Delivery", vi: "Triển khai" }, note: "Docker · Git · CI deploys", value: 66 },
-  {
-    name: { en: "Adaptability", vi: "Thích nghi" },
-    note: { en: "AI tooling · new stacks", vi: "Công cụ AI · công nghệ mới" },
-    value: 90,
-  },
-];
-
 export type ArsenalGroup = {
   school: Text;
   glyph: "quill" | "shield" | "key" | "vault" | "gear";
