@@ -1,0 +1,140 @@
+/* Contact: stacked, staggered party panels (P3R pause screen), all details always visible */
+
+.pact {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.pact__lead {
+  max-width: 34rem;
+}
+.pact__where {
+  margin-top: 1.6rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.pact__where span {
+  margin-right: 0.4rem;
+  font-family: var(--font-cond);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+/* ---------- Party panels ---------- */
+.party {
+  display: grid;
+  gap: 1.1rem;
+}
+/* each card steps a little further right, like the stacked party list */
+.party__slot {
+  margin-left: calc(var(--k) * 2.2rem);
+  /* the drop shadow follows the slanted clip-path of the card */
+  filter: drop-shadow(8px 8px 0 var(--ink));
+  transition: filter 0.2s var(--ease);
+}
+.party__slot:hover,
+.party__slot:focus-within {
+  filter: drop-shadow(8px 8px 0 var(--red));
+}
+.party__card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1rem 2.2rem 1rem 1.6rem;
+  background: var(--grad-field);
+  color: var(--white);
+  clip-path: polygon(1.4rem 0, 100% 0, calc(100% - 1.4rem) 100%, 0 100%);
+  outline: none;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    translate 0.2s var(--ease);
+}
+.party__slot:nth-child(2) .party__card {
+  background: linear-gradient(165deg, #0f4dff 0%, #0a2bb8 60%, #071a6e 100%);
+}
+.party__slot:nth-child(3) .party__card {
+  background: linear-gradient(165deg, #22c4ff 0%, #0f4dff 55%, #0a2bb8 100%);
+}
+.party__slot:hover .party__card,
+.party__card:focus-visible {
+  background: var(--white);
+  color: var(--navy);
+  translate: -4px -3px;
+}
+
+.party__badge {
+  display: grid;
+  place-items: center;
+  width: 3.6rem;
+  aspect-ratio: 1;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+.party__badge svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.party__body {
+  display: grid;
+  min-width: 0;
+}
+.party__label {
+  font-family: var(--font-cond);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ice);
+}
+.party__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.party__slot:hover .party__label,
+.party__card:focus-visible .party__label {
+  color: var(--blue);
+}
+.party__go {
+  font-size: 1.3rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .pact {
+    grid-template-columns: 1fr;
+  }
+  .party__slot {
+    margin-left: calc(var(--k) * 0.8rem);
+  }
+}
+@media (max-width: 480px) {
+  .party__card {
+    gap: 0.8rem;
+    padding: 0.85rem 1.6rem 0.85rem 1.2rem;
+  }
+  .party__badge {
+    width: 2.8rem;
+  }
+  .party__go {
+    display: none;
+  }
+}

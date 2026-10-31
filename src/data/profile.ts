@@ -28,6 +28,7 @@ export const profile = {
 };
 
 export const records: { label: Text; value: Text }[] = [
+  { label: { en: "Date of birth", vi: "Ngày sinh" }, value: { en: "2 July 2004", vi: "02/07/2004" } },
   { label: { en: "Based in", vi: "Nơi ở" }, value: profile.location },
   {
     label: { en: "School", vi: "Trường" },

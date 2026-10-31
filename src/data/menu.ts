@@ -49,6 +49,13 @@ export const menu: MenuItem[] = [
     tag: { en: "What I bring to a team beyond the code.", vi: "Những gì tôi mang đến cho đội ngoài dòng code." },
     hint: { en: "Responsibility, teamwork, problem solving and self-learning.", vi: "Trách nhiệm, làm việc nhóm, giải quyết vấn đề và tự học." },
   },
+  {
+    path: "/contact",
+    num: "06",
+    label: { en: "Contact", vi: "Liên hệ" },
+    tag: { en: "Forge a new bond.", vi: "Kết nối một mối liên kết mới." },
+    hint: { en: "Email, phone and GitHub.", vi: "Email, số điện thoại và GitHub." },
+  },
 ];
 
 export const menuByPath = (pathname: string) =>
