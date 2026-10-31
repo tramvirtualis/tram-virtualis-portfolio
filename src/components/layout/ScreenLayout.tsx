@@ -1,7 +1,6 @@
 import { useEffect, type CSSProperties, type ReactNode } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { menu } from "../../data/menu";
-import { profile } from "../../data/profile";
 import { useLang, type Text } from "../../i18n/lang";
 import { ui } from "../../i18n/ui";
 import { Highlight } from "../ornaments/Ornaments";
@@ -17,7 +16,7 @@ type Props = {
 };
 
 /**
- * Frame shared by every content screen: command bar (back, tabs, language, CV),
+ * Frame shared by every content screen: command bar (back, tabs, language),
  * and the giant worn title.
  * Keys: Esc = back, Q / E = previous / next section.
  */
@@ -73,9 +72,6 @@ export function ScreenLayout({ title, tag, back = { to: "/", label: ui.menu }, c
 
         <div className="topbar__end">
           <LangToggle />
-          <a className="topbar__cv" href={profile.cv} target="_blank" rel="noreferrer">
-            CV
-          </a>
         </div>
       </header>
 

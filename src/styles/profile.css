@@ -171,65 +171,6 @@
   font-weight: 900;
 }
 
-/* ---------- Base stats: thick bars, big numbers ---------- */
-.stats {
-  display: grid;
-  gap: 0.7rem;
-}
-.stat {
-  display: grid;
-  grid-template-columns: 8.6rem 1fr 3.4rem;
-  align-items: center;
-  column-gap: 1rem;
-}
-.stat__name {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-style: italic;
-  font-weight: 900;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.stat__bar {
-  position: relative;
-  height: 16px;
-  background: #d6e3fb;
-  overflow: hidden;
-  transform: skewX(var(--skew));
-}
-.stat__bar::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--cobalt), var(--blue) 60%, var(--sky));
-  transform: scaleX(var(--v));
-  transform-origin: left;
-  animation: stat-fill 1s var(--ease) both;
-  animation-delay: calc(0.6s + var(--k) * 0.1s);
-}
-.stat__value {
-  font-family: var(--font-display);
-  font-size: 1.9rem;
-  font-style: italic;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  text-align: right;
-  color: var(--ink);
-}
-.stat__note {
-  grid-column: 2 / -1;
-  margin-top: -0.2rem;
-  font-size: 0.74rem;
-  color: var(--mute);
-}
-@keyframes stat-fill {
-  from {
-    transform: scaleX(0);
-  }
-}
-
 .records > div {
   display: grid;
   grid-template-columns: 7rem 1fr;
@@ -642,9 +583,6 @@
   }
 }
 @media (max-width: 560px) {
-  .stat {
-    grid-template-columns: 6.4rem 1fr 2.6rem;
-  }
   .roster__row {
     grid-template-columns: 2rem 1fr auto;
   }
