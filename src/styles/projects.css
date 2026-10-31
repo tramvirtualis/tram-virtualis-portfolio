@@ -1,0 +1,445 @@
+/* Projects: mission list + preview, and the detail screen */
+
+/* ---------- Poster art ---------- */
+.poster {
+  width: 100%;
+  height: auto;
+}
+.poster__dot {
+  fill: var(--ink);
+}
+.poster__title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+.poster__small {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.poster__float,
+.poster__rise {
+  transition: transform 0.5s var(--ease);
+}
+.preview__poster:hover .poster__float {
+  transform: translateY(-8px);
+}
+.preview__poster:hover .poster__rise {
+  transform: translateY(-4px);
+}
+
+/* Poster card: white frame, ink outline, blue offset shadow */
+.preview__poster {
+  position: relative;
+  width: min(100%, 330px);
+  margin-inline: auto;
+  padding: 8px;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--blue);
+  rotate: -3deg;
+}
+/* the selection plate isn't used on posters */
+.preview__hl {
+  display: none;
+}
+
+/* ---------- Mission list: navy bands ---------- */
+.quests {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.quests__list {
+  display: grid;
+  gap: 0.7rem;
+}
+.quest {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr auto 1.2rem;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.85rem 1.4rem 0.85rem 1rem;
+  background: var(--navy);
+  border-left: 6px solid var(--sky);
+  color: var(--white);
+}
+.quest__num {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 900;
+  color: var(--sky);
+}
+.quest__main {
+  display: grid;
+}
+.quest__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+.quest__kicker {
+  font-size: 0.92rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ice);
+}
+.quest__meta {
+  display: grid;
+  justify-items: end;
+  gap: 0.35rem;
+}
+.quest__year {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 800;
+}
+.quest__go {
+  font-size: 1.1rem;
+  opacity: 0;
+  translate: -6px 0;
+  transition:
+    opacity 0.2s,
+    translate 0.25s var(--ease);
+}
+.row:is(:hover, .is-selected) .quest__go {
+  opacity: 1;
+  translate: 0 0;
+}
+.quest--empty {
+  background: transparent;
+  border: 2px dashed var(--ink);
+  color: var(--ink);
+}
+.quest--empty .quest__kicker,
+.quest--empty .quest__num {
+  color: var(--mute);
+}
+
+.quests__preview {
+  position: sticky;
+  top: 6rem;
+  display: grid;
+  gap: 2.4rem;
+  animation: preview-in 0.35s var(--ease);
+}
+.preview__title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.preview__stack {
+  margin: 0.8rem 0 1.3rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+@keyframes preview-in {
+  from {
+    opacity: 0;
+    translate: 24px 0;
+  }
+}
+
+/* ---------- Detail ---------- */
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.detail__aside {
+  position: sticky;
+  top: 5.5rem;
+  display: grid;
+  gap: 2.4rem;
+}
+.detail__links {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: start;
+}
+.detail__main {
+  display: grid;
+  gap: 2.6rem;
+}
+.features {
+  display: grid;
+  gap: 0.2rem;
+}
+.features .row {
+  display: grid;
+  grid-template-columns: 2.8rem 1fr;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.55rem 1rem 0.55rem 0.5rem;
+}
+.features__num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 900;
+  color: var(--blue);
+}
+.features p {
+  font-size: 0.95rem;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tags li {
+  padding: 0.05rem 0.75rem;
+  border: 2px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 800;
+  transform: skewX(var(--skew));
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.tags li:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 3px solid var(--ink);
+}
+.pager__link {
+  display: grid;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.pager__link small {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  color: var(--blue);
+}
+.pager__link--next {
+  text-align: right;
+}
+.pager__link:hover {
+  color: var(--blue);
+}
+
+/* ---------- Role line, small labels, bullet lists ---------- */
+.role-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 800;
+  color: var(--ink);
+}
+.role-line__label {
+  padding: 0.05rem 0.65rem;
+  background: var(--blue);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  transform: skewX(var(--skew));
+}
+.preview__text .role-line {
+  margin: 0.5rem 0 0;
+}
+.mini-label {
+  margin: 1.3rem 0 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.feature-bullets {
+  display: grid;
+  gap: 0.4rem;
+}
+.feature-bullets li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+.feature-bullets li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+}
+
+/* ---------- Problems solved: problem → solution → result ---------- */
+.challenges {
+  margin-top: 3.6rem;
+}
+.challenges__list {
+  display: grid;
+  gap: 1.4rem;
+}
+.challenge {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem repeat(3, minmax(0, 1fr));
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--blue);
+  background: var(--white);
+}
+.challenge__num {
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--sky);
+}
+.challenge__step {
+  position: relative;
+  padding: 1.1rem 1.6rem 1.3rem 1.4rem;
+}
+.challenge__step p {
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+/* arrow between steps */
+.challenge__step + .challenge__step::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -1px;
+  width: 16px;
+  height: 28px;
+  background: var(--ink);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  translate: 0 -50%;
+}
+.challenge__step--problem {
+  background: var(--navy);
+  color: var(--white);
+}
+.challenge__step--problem .challenge__tag {
+  background: var(--sky);
+  color: var(--ink);
+}
+.challenge__step--result {
+  background: var(--grad-field);
+  color: var(--white);
+}
+.challenge__step--result .challenge__tag {
+  background: var(--white);
+  color: var(--blue);
+}
+.challenge__tag {
+  display: inline-block;
+  padding: 0.05rem 0.7rem;
+  background: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  transform: skewX(var(--skew));
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .challenge {
+    grid-template-columns: 1fr;
+  }
+  .challenge__num {
+    justify-items: start;
+    padding: 0.3rem 1.4rem;
+  }
+  .challenge__step + .challenge__step::before {
+    top: -1px;
+    left: 2rem;
+    width: 28px;
+    height: 14px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    translate: 0 0;
+  }
+}
+@media (max-width: 960px) {
+  .quests,
+  .detail {
+    grid-template-columns: 1fr;
+  }
+  .quests__preview,
+  .detail__aside {
+    position: static;
+  }
+  .quests__preview {
+    grid-template-columns: minmax(0, 220px) 1fr;
+    align-items: start;
+  }
+}
+@media (max-width: 600px) {
+  .quest {
+    grid-template-columns: 2rem 1fr 1rem;
+  }
+  .quest__meta {
+    grid-column: 2;
+    grid-row: 2;
+    justify-items: start;
+    grid-auto-flow: column;
+    align-items: center;
+  }
+  .quests__preview {
+    grid-template-columns: 1fr;
+  }
+  .pager {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pager > .strip {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}

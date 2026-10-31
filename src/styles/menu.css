@@ -1,0 +1,315 @@
+/* Main menu — bright pause-menu composition */
+
+.title {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "top lang"
+    "id menu"
+    "id menu";
+  column-gap: 2rem;
+  min-height: 100svh;
+  /* extra left room for the giant vertical PORTFOLIO */
+  padding: 1.6rem var(--gutter) 1.6rem calc(var(--gutter) + 9svh);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Giant outlined word on the blue field */
+.title__ghost {
+  position: absolute;
+  right: -1.5vw;
+  bottom: -4.5vw;
+  z-index: -1;
+  font-family: var(--font-display);
+  font-size: 25vw;
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  animation: fade-in 1.2s ease 0.4s both;
+}
+/* Giant faded word down the left edge, read top to bottom.
+   Its font size is set from JS so it spans the full screen height. */
+.title__wedge-text {
+  position: absolute;
+  top: 0;
+  left: -0.1em;
+  z-index: -1;
+  writing-mode: vertical-rl;
+  font-family: var(--font-cond);
+  font-size: 22svh;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(11, 29, 94, 0.13);
+  pointer-events: none;
+  animation: fade-in 0.8s ease 0.2s both;
+}
+
+/* ---------- Language switch (top-right, on the blue field) ---------- */
+.title__lang {
+  grid-area: lang;
+  justify-self: end;
+  align-self: start;
+  background: transparent;
+  border-color: var(--white);
+  color: var(--white);
+}
+.title__lang span.is-on {
+  background: var(--white);
+  color: var(--blue);
+}
+.title__lang:hover span:not(.is-on) {
+  color: var(--ink);
+}
+
+/* ---------- Giant name ---------- */
+.title__id {
+  grid-area: id;
+  align-self: center;
+  position: relative;
+  z-index: 1;
+  /* sit a little above true centre, clear of the black wedge */
+  padding-bottom: 6vh;
+}
+.title__name {
+  display: inline-block;
+  padding: 0.16em 0.06em 0.24em 0; /* room for Vietnamese accents (Â) and dot-below (Ọ) */
+  margin-bottom: -0.2em;
+  font-family: var(--font-display);
+  /* one line, sized to fit the left column */
+  font-size: clamp(3rem, min(7.2vw, 13vh), 7rem);
+  font-weight: 900;
+  line-height: 1.05;
+  white-space: nowrap;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  background: var(--grad-sky);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.title__role {
+  display: table;
+  margin-top: 1rem;
+  padding: 0.35rem 1rem;
+  background: var(--ink);
+  box-shadow: 6px 6px 0 var(--sky);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  transform: skewX(var(--skew));
+}
+.title__statement {
+  max-width: 34rem;
+  margin-top: 1.2rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--blue);
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+/* Surname + availability above the giant name */
+.title__kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.2rem;
+  margin-bottom: 0.2rem;
+}
+.title__surname {
+  padding: 0.15rem 0.8rem;
+  background: var(--blue);
+  font-family: var(--font-cond);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--white);
+  transform: skewX(var(--skew));
+}
+.title__kicker .status {
+  color: var(--navy);
+}
+
+
+.title__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.1rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Command list on the blue field ---------- */
+.menu {
+  grid-area: menu;
+  align-self: center;
+  justify-self: center;
+  z-index: 2;
+  padding-left: 3vw;
+}
+.menu__list {
+  display: grid;
+  justify-items: start;
+  row-gap: 0.15em;
+  /* the column stands upright */
+  rotate: 0deg;
+}
+/* tiny jitter so the column isn't perfectly aligned */
+.menu__list li {
+  margin-left: var(--o);
+}
+.menu__item {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.2em 0 0.05em;
+  font-family: var(--font-cond);
+  /* compact, tightly stacked words; --s varies the size per entry */
+  font-size: calc(var(--s, 1) * clamp(2.9rem, min(5.6vw, 9.6vh), 5.8rem));
+  font-style: italic;
+  font-weight: 900;
+  /* roomy enough that Vietnamese accents (Ệ, Ỹ, Ụ) don't touch the next line */
+  line-height: 1.18;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: #a6ebff;
+  isolation: isolate;
+  outline: none;
+  transform-origin: 30% center;
+  transition: color 0.1s;
+}
+.menu__item:hover {
+  color: #d9f7ff;
+}
+
+/* ---------- Persona 5-style selection ----------
+   A jagged white plate and a red echo (fresh random shapes on every selection,
+   set from JS as --plate / --echo) punch in with an elastic overshoot, and the
+   word jumps and enlarges; the plate sweeps out to the right screen edge. */
+.menu__item.is-selected {
+  z-index: 2;
+  color: var(--ink);
+  transform: scale(1.16);
+  animation: p5-jump 0.34s cubic-bezier(0.3, 1.9, 0.5, 1);
+}
+.menu__slash,
+.menu__item::after {
+  position: absolute;
+  /* runs from just left of the word all the way past the right screen edge
+     (the .title / .menu containers clip it at the edge) */
+  top: -4%;
+  left: -0.35em;
+  width: 100vw;
+  height: 108%;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+/* white plate */
+.menu__slash {
+  z-index: -1;
+  background: var(--white);
+  clip-path: var(--plate, polygon(4% 12%, 97% 2%, 93% 90%, 1% 98%));
+}
+/* red echo, offset down-right */
+.menu__item::after {
+  content: "";
+  z-index: -2;
+  background: var(--red);
+  clip-path: var(--echo, polygon(4% 12%, 97% 2%, 93% 90%, 1% 98%));
+  translate: 0.16em 0.12em;
+}
+.menu__item.is-selected .menu__slash,
+.menu__item.is-selected::after {
+  animation: p5-pop 0.36s cubic-bezier(0.3, 1.7, 0.5, 1) forwards;
+}
+.menu__item.is-selected::after {
+  animation-delay: 0.04s;
+}
+@keyframes p5-pop {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes p5-jump {
+  0% {
+    transform: scale(0.9) translateX(-0.12em);
+  }
+  100% {
+    transform: scale(1.16);
+  }
+}
+.menu__item:focus-visible {
+  outline: 2px dashed var(--white);
+  outline-offset: 6px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .title {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "top lang"
+      "id id"
+      "menu menu";
+    grid-template-rows: auto auto auto;
+    padding-left: var(--gutter);
+    padding-bottom: 0;
+  }
+  .title__lang {
+    background: var(--white);
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+  .title__lang span.is-on {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .title__wedge-text {
+    display: none;
+  }
+  .title__id {
+    padding: 2.4rem 0 0;
+  }
+  .title__ghost {
+    font-size: 40vw;
+    bottom: auto;
+    top: 62%;
+  }
+  .menu {
+    justify-self: stretch;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    background: var(--grad-field);
+  }
+  .menu {
+    margin-top: 2.5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+    clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@media (max-width: 560px) {
+  .menu__item {
+    font-size: calc(var(--s, 1) * 3.1rem);
+  }
+  .menu__list li {
+    margin-left: calc(var(--o) * 0.5);
+  }
+}

@@ -1,0 +1,657 @@
+/* Profile (status screen) + Skills */
+
+.statusview {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+/* ---------- Arcana card (stands in for a portrait) ---------- */
+.status__art {
+  position: sticky;
+  top: 6rem;
+  display: grid;
+  justify-items: center;
+  gap: 1.2rem;
+}
+.arcana {
+  width: min(100%, 290px);
+  height: auto;
+  rotate: -5deg;
+  filter: drop-shadow(12px 12px 0 var(--ink));
+  animation: card-float 6s ease-in-out infinite alternate;
+}
+.arcana__card {
+  fill: var(--blue);
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+.arcana__frame {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 1.5;
+  opacity: 0.8;
+}
+.arcana__numeral {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-style: italic;
+  font-weight: 900;
+  fill: var(--white);
+}
+.arcana__art line {
+  stroke: var(--ice);
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+.arcana__moon {
+  fill: var(--white);
+}
+.arcana__shade {
+  fill: var(--sky);
+  opacity: 0.9;
+}
+.arcana__wave {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.arcana__plate {
+  fill: var(--ink);
+}
+.arcana__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 3px;
+  fill: var(--white);
+}
+.status__arcana-note {
+  max-width: 18rem;
+  text-align: center;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--mute);
+}
+@keyframes card-float {
+  to {
+    translate: 0 -10px;
+    rotate: -3deg;
+  }
+}
+
+.status__main {
+  display: grid;
+  gap: 2.2rem;
+}
+
+/* Name plate: black slanted band */
+.nameplate {
+  display: grid;
+  justify-self: start;
+  padding: 0.4rem 1.6rem 0.5rem 1.2rem;
+  background: var(--ink);
+  box-shadow: 9px 7px 0 var(--sky);
+  color: var(--white);
+  transform: skewX(var(--skew));
+}
+.nameplate__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.nameplate__class {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+
+/* "LV." style headline number */
+.level {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  column-gap: 0.9rem;
+}
+.level__label {
+  padding-bottom: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 900;
+  color: var(--ink);
+}
+.level__value {
+  padding-right: 0.08em;
+  font-family: var(--font-display);
+  font-size: clamp(4.6rem, 9vw, 7.6rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: var(--grad-sky);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.level__next {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 800;
+  color: var(--ink);
+}
+.level__bar {
+  flex: 1;
+  max-width: 16rem;
+  height: 10px;
+  background:
+    linear-gradient(var(--blue), var(--blue)) 0 0 / calc(var(--v) * 100%) 100% no-repeat,
+    #d6e3fb;
+  transform: skewX(var(--skew));
+}
+.level__num {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+/* ---------- Base stats: thick bars, big numbers ---------- */
+.stats {
+  display: grid;
+  gap: 0.7rem;
+}
+.stat {
+  display: grid;
+  grid-template-columns: 8.6rem 1fr 3.4rem;
+  align-items: center;
+  column-gap: 1rem;
+}
+.stat__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.stat__bar {
+  position: relative;
+  height: 16px;
+  background: #d6e3fb;
+  overflow: hidden;
+  transform: skewX(var(--skew));
+}
+.stat__bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--cobalt), var(--blue) 60%, var(--sky));
+  transform: scaleX(var(--v));
+  transform-origin: left;
+  animation: stat-fill 1s var(--ease) both;
+  animation-delay: calc(0.6s + var(--k) * 0.1s);
+}
+.stat__value {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-align: right;
+  color: var(--ink);
+}
+.stat__note {
+  grid-column: 2 / -1;
+  margin-top: -0.2rem;
+  font-size: 0.74rem;
+  color: var(--mute);
+}
+@keyframes stat-fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.records > div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #dbe4f5;
+}
+.records > div:last-child {
+  border-bottom: 0;
+}
+.records dt {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.records dd {
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+/* ---------- Lower: intro + journal ---------- */
+.profile-lower {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.4rem;
+  margin-top: 3.4rem;
+}
+.traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+}
+.traits li {
+  padding: 0.1rem 0.8rem;
+  border: 2px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: skewX(var(--skew));
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+.traits li:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+.journal {
+  display: grid;
+  gap: 0.2rem;
+}
+.journal .row {
+  display: grid;
+  grid-template-columns: 4.4rem 1fr;
+  gap: 1rem;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+}
+.journal__year {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--blue);
+}
+.journal__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.journal p {
+  font-size: 0.88rem;
+  color: var(--mute);
+}
+
+/* ---------- Skills roster: navy bands ---------- */
+.equip {
+  max-width: 64rem;
+}
+/* Tech stack: list on the left, detail panel on the right */
+.equip--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 27rem);
+  gap: clamp(1.6rem, 3vw, 2.6rem);
+  align-items: start;
+  max-width: none;
+}
+.roster__row--pick {
+  cursor: pointer;
+}
+.stack-detail {
+  position: sticky;
+  top: 6rem;
+  padding: 1.5rem 1.6rem 1.6rem;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--blue);
+  animation: preview-in 0.3s var(--ease);
+}
+.stack-detail__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 3px solid var(--ink);
+}
+.stack-detail__slot {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 900;
+  color: var(--blue);
+}
+.stack-detail__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.stack-detail__summary {
+  margin-top: 0.8rem;
+  font-size: 0.92rem;
+  color: var(--mute);
+}
+.stack-detail__list {
+  display: grid;
+  gap: 0.95rem;
+  margin: 1.2rem 0 0;
+}
+.stack-detail__item {
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--sky);
+}
+.stack-detail__item dt {
+  font-family: var(--font-cond);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.stack-detail__item dd {
+  margin: 0.1rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+.roster {
+  display: grid;
+  gap: 0.6rem;
+}
+.roster__row {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr auto auto;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.85rem 1.4rem 0.85rem 1rem;
+  background: var(--navy);
+  border-left: 6px solid var(--sky);
+  color: var(--white);
+}
+.roster__slot {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 900;
+  color: var(--sky);
+}
+.roster__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.roster__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 1rem;
+  margin-top: 0.15rem;
+  font-size: 0.88rem;
+  color: var(--ice);
+}
+/* Rows without the count column (both skills screens) */
+.roster__row--prose {
+  grid-template-columns: 2.6rem 1fr auto;
+  padding-block: 1.1rem;
+}
+.roster__text {
+  max-width: 52rem;
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ice);
+}
+
+/* ---------- Section label (black tab, standalone) ---------- */
+.section-label {
+  display: table;
+  margin-bottom: 1.4rem;
+  padding: 0.25rem 1rem;
+  background: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  transform: skewX(var(--skew));
+}
+
+/* ---------- Career direction ---------- */
+.goals {
+  margin-top: 3.6rem;
+}
+.goals__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+.goal {
+  position: relative;
+  overflow: hidden;
+  padding: 1.4rem 1.4rem 1.5rem;
+  background: var(--navy);
+  border-top: 6px solid var(--sky);
+  color: var(--white);
+  transition:
+    translate 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+.goal:hover {
+  translate: 0 -5px;
+  box-shadow: 8px 8px 0 var(--sky);
+}
+.goal__num {
+  position: absolute;
+  top: -0.2rem;
+  right: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 4.6rem;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(34, 196, 255, 0.55);
+}
+.goal__horizon {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.goal__title {
+  position: relative;
+  margin: 0.35rem 0 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.goal__text {
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--ice);
+}
+
+/* ---------- Experience ---------- */
+.jobs {
+  display: grid;
+  gap: 2.2rem;
+}
+.job {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 8fr);
+  background: var(--white);
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--blue);
+}
+.job__head {
+  position: relative;
+  padding: 1.6rem 3rem 1.6rem 1.6rem;
+  background: var(--navy);
+  color: var(--white);
+  /* diagonal right edge */
+  clip-path: polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0 100%);
+}
+.job__num {
+  display: block;
+  padding-right: 0.08em;
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: var(--grad-sky);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.job__type {
+  margin-top: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.job__company {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+.job__role {
+  margin-top: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 800;
+  color: var(--ice);
+}
+.job__period {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ice);
+  opacity: 0.8;
+}
+.job__body {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  padding: 1.6rem 1.8rem;
+}
+.job__points {
+  display: grid;
+  gap: 0.45rem;
+}
+.job__points li {
+  position: relative;
+  padding-left: 1.3rem;
+  font-size: 0.93rem;
+}
+.job__points li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+}
+.job__link {
+  justify-self: start;
+  margin-top: 0.3rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .goals__list {
+    grid-template-columns: 1fr;
+  }
+  .job {
+    grid-template-columns: 1fr;
+  }
+  .job__head {
+    clip-path: none;
+  }
+}
+@media (max-width: 960px) {
+  .statusview,
+  .profile-lower,
+  .equip--split {
+    grid-template-columns: 1fr;
+  }
+  .status__art,
+  .stack-detail {
+    position: static;
+  }
+  .arcana {
+    width: min(65%, 230px);
+  }
+}
+@media (max-width: 560px) {
+  .stat {
+    grid-template-columns: 6.4rem 1fr 2.6rem;
+  }
+  .roster__row {
+    grid-template-columns: 2rem 1fr auto;
+  }
+  .roster__row--prose {
+    grid-template-columns: 2rem 1fr;
+  }
+  .roster__row .emblem {
+    display: none;
+  }
+}

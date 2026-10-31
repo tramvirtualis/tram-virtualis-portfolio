@@ -1,0 +1,32 @@
+:root {
+  /* Palette — bright paper, electric blue, ink black; red only as a slash accent */
+  --paper: #f2f6fc;
+  --white: #ffffff;
+  --ink: #0a0d14;
+  --text: #1d2742;
+  --mute: #4f5d7e;
+  --navy: #0b1d5e;
+  --blue: #0f4dff;
+  --cobalt: #0a2bb8;
+  --sky: #22c4ff;
+  --ice: #bfe6ff;
+  --red: #ff2d55;
+  --violet: #6a4dff;
+
+  /* Big lettering gradient (light sky at the top → electric blue) */
+  --grad-sky: linear-gradient(180deg, #45d6ff 0%, #18a4ff 42%, #0f4dff 100%);
+  --grad-field: linear-gradient(165deg, #3ccfff 0%, #1170ff 36%, #0a2bb8 76%, #071a6e 100%);
+
+  /* Type */
+  --font-display: "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif;
+  --font-cond: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-slam: cubic-bezier(0.76, 0, 0.24, 1);
+  --skew: -12deg;
+
+  /* Layout */
+  --gutter: clamp(1rem, 4vw, 3rem);
+}

@@ -1,0 +1,340 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img,
+svg {
+  display: block;
+}
+::selection {
+  background: var(--blue);
+  color: var(--white);
+}
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* ---------- Entrance: panels slide in from the right ---------- */
+.rise {
+  animation: slide-in 0.5s var(--ease) both;
+  animation-delay: calc(0.26s + var(--i, 4) * 55ms);
+}
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    translate: 48px 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* ---------- Selection plate: slanted slab + offset echo ---------- */
+.hl {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s var(--ease);
+}
+.hl__plate,
+.hl__echo {
+  position: absolute;
+  inset: 0;
+  transform: skewX(var(--skew));
+}
+.hl__plate {
+  background: var(--white);
+}
+.hl__echo {
+  background: var(--sky);
+  translate: 8px 6px;
+}
+
+/* Rows: anything selectable in a list (dark navy bands by default) */
+.row {
+  position: relative;
+  isolation: isolate;
+  transition: color 0.12s;
+}
+.row:is(:hover, :focus-visible, .is-selected) > .hl {
+  transform: scaleX(1);
+}
+.row:is(:hover, :focus-visible, .is-selected) {
+  color: var(--ink);
+}
+.row:is(:hover, :focus-visible, .is-selected) :is(span, p, h2, h3, small, dt, dd, a) {
+  color: inherit;
+}
+.row:focus-visible {
+  outline: none;
+}
+/* rows inside white panels light up blue instead */
+.panel .row:is(:hover, :focus-visible, .is-selected) {
+  color: var(--white);
+}
+.panel .hl__plate {
+  background: var(--blue);
+}
+.panel .hl__echo {
+  background: var(--ink);
+}
+
+/* ---------- Slanted buttons ---------- */
+.strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.4rem;
+  border: 2px solid var(--ink);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--ink);
+  transform: skewX(var(--skew));
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    box-shadow 0.2s var(--ease);
+}
+.strip:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+  box-shadow: 6px 5px 0 var(--ink);
+}
+.strip--ink {
+  background: var(--ink);
+  color: var(--white);
+}
+.strip--ink:hover {
+  box-shadow: 6px 5px 0 var(--sky);
+}
+.strip--light {
+  background: var(--white);
+}
+
+/* ---------- Panels: white cards with a black tab label ---------- */
+.panel {
+  position: relative;
+  padding: 1.7rem 1.6rem 1.4rem;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--blue);
+}
+.panel__title {
+  display: table;
+  margin: -2.6rem 0 1.1rem -0.6rem;
+  padding: 0.2rem 0.85rem;
+  background: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--white);
+  transform: skewX(var(--skew));
+}
+.panel__foot {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--mute);
+}
+
+/* Giant title lettering: heavy, tight, sky-to-blue gradient */
+.giant {
+  /* the gradient is clipped to the text box, so leave room above and below
+     for Vietnamese accents (Á, Ấ) and dot-below marks (Ụ, Ự) */
+  padding: 0.24em 0.06em 0.22em 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  /* taller than usual so accents on a wrapped second line (Ấ) clear the
+     dot-below marks of the line above (Ậ, Ộ) */
+  line-height: 1.3;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  background: var(--grad-sky);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.emblem {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 50px;
+  height: 50px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+.emblem svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Shared type ---------- */
+.lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text);
+}
+.body-copy {
+  margin-top: 0.8rem;
+  font-size: 0.92rem;
+  color: var(--mute);
+}
+.text-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  border-bottom: 2px solid currentColor;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.next-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.2rem;
+  margin-top: 1.6rem;
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: max-content;
+  padding: 0 0.6rem;
+  border: 1.5px solid currentColor;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: skewX(var(--skew));
+}
+.status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.status.is-live::before {
+  background: var(--sky);
+  box-shadow: 0 0 0 3px rgba(34, 196, 255, 0.3);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  flex: none;
+  padding: 0;
+  border: 2px solid var(--ink);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  transform: skewX(var(--skew));
+}
+.lang-toggle span {
+  padding: 0.38rem 0.6rem;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+.lang-toggle:hover span:not(.is-on) {
+  color: var(--blue);
+}
+.lang-toggle span.is-on {
+  background: var(--ink);
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.001ms !important;
+  }
+}

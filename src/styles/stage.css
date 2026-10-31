@@ -1,0 +1,198 @@
+/* Stage: bright graphic backdrop, route cut, cursor */
+
+.stage {
+  position: relative;
+  min-height: 100svh;
+  overflow-x: clip;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+/* Electric-blue field with a diagonal left edge */
+.backdrop__field {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 54vw;
+  background: var(--grad-field);
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+  transition: width 0.7s var(--ease-slam);
+  animation: field-in 0.8s var(--ease-slam) both;
+}
+/* glossy diagonal sheen across the blue */
+.backdrop__field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.16) 44%,
+    rgba(255, 255, 255, 0.04) 52%,
+    transparent 62%
+  );
+}
+.stage--screen .backdrop__field {
+  width: 30vw;
+}
+
+/* Thin sky band slicing across the whole page, edge to edge.
+   --y1 / --y2 are where it meets the left and right edges. */
+.backdrop__band {
+  --y1: 94%;
+  --y2: 70%;
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  animation: band-in 0.9s var(--ease) 0.2s both;
+}
+.backdrop__band::before,
+.backdrop__band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.backdrop__band::before {
+  background: var(--sky);
+  clip-path: polygon(0 var(--y1), 100% var(--y2), 100% calc(var(--y2) + 14px), 0 calc(var(--y1) + 14px));
+}
+/* thin black line running just under it */
+.backdrop__band::after {
+  background: var(--ink);
+  clip-path: polygon(
+    0 calc(var(--y1) + 24px),
+    100% calc(var(--y2) + 24px),
+    100% calc(var(--y2) + 27px),
+    0 calc(var(--y1) + 27px)
+  );
+}
+
+/* Black wedge, bottom-left */
+.backdrop__wedge {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  clip-path: polygon(0 74%, 22% 100%, 0 100%);
+}
+@keyframes field-in {
+  from {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+@keyframes band-in {
+  from {
+    scale: 0 1;
+  }
+}
+
+/* ---------- Route change: slanted panels cut across ---------- */
+.sweep {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  overflow: hidden;
+}
+.sweep__panel {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 42vw;
+  height: 140%;
+  transform: translateX(-70vw) skewX(-18deg);
+  animation: sweep 0.62s var(--ease-slam) forwards;
+}
+.sweep__panel--a {
+  background: var(--blue);
+}
+.sweep__panel--b {
+  width: 14vw;
+  background: var(--ink);
+  animation-delay: 0.05s;
+}
+.sweep__panel--c {
+  width: 4vw;
+  background: var(--sky);
+  animation-delay: 0.1s;
+}
+/* vw units so every panel, whatever its width, fully leaves the screen */
+@keyframes sweep {
+  to {
+    transform: translateX(140vw) skewX(-18deg);
+  }
+}
+
+.stage__screen {
+  /* "backwards" so no transform lingers once the screen has landed */
+  animation: screen-in 0.45s var(--ease) 0.22s backwards;
+}
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+/* ---------- Cursor ---------- */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  mix-blend-mode: difference;
+}
+.cursor.is-on {
+  opacity: 1;
+}
+.cursor span {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  transition: scale 0.25s var(--ease);
+}
+.cursor.is-hot span {
+  scale: 1.9;
+}
+.cursor.is-down span {
+  scale: 0.8;
+}
+@media (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .stage--menu .backdrop__field {
+    display: none;
+  }
+  .stage--screen .backdrop__field {
+    width: 40vw;
+    opacity: 0.9;
+  }
+  .backdrop__band {
+    --y1: 45%;
+    --y2: 25%;
+    opacity: 0.6;
+  }
+  /* on the stacked mobile title screen the stripe would cross the intro text */
+  .stage--menu .backdrop__band {
+    display: none;
+  }
+  .backdrop__wedge {
+    clip-path: polygon(0 86%, 30% 100%, 0 100%);
+  }
+}
