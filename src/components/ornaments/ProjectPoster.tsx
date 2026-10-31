@@ -2,7 +2,7 @@ import { useId } from "react";
 
 /**
  * Flat-colour screen-print style poster for each project. Original artwork,
- * pure SVG — scales cleanly and costs nothing to render.
+ * pure SVG, so it scales cleanly and costs nothing to render.
  */
 export function ProjectPoster({ kind }: { kind: "estate" | "cinema" }) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");

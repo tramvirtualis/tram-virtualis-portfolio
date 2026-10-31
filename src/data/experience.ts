@@ -1,4 +1,4 @@
-// Work experience — DRAFT content, to be refined. Newest first.
+// Work experience. Newest first.
 import type { Text } from "../i18n/lang";
 
 export type Job = {
@@ -19,7 +19,7 @@ export const jobs: Job[] = [
     id: "dat-viet-group",
     company: "Đất Việt Group",
     role: { en: "Full-stack Developer", vi: "Lập trình viên Full-stack" },
-    period: { en: "2026 – present", vi: "2026 – nay" },
+    period: { en: "2026 to present", vi: "2026 đến nay" },
     type: { en: "Real estate", vi: "Bất động sản" },
     summary: {
       en: "Building Dat Viet Group's digital real estate platform. I own the entire Project module end to end and designed the platform's main user interfaces.",

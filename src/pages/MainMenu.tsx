@@ -11,7 +11,7 @@ const cascade = [0.3, 0, 0.18, 0.42, 0.08, 0.3];
 const sizes = [1, 0.94, 1.12, 0.96, 1.05, 1];
 
 /**
- * Random-ish jagged bar, as a CSS polygon — a new one on every selection.
+ * Random-ish jagged bar, as a CSS polygon, a new one on every selection.
  * The left end is jittered in em (it sits by the word); the right end runs off-screen.
  */
 function jaggedBar(spread: number) {

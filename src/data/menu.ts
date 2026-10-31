@@ -15,7 +15,7 @@ export const menu: MenuItem[] = [
     path: "/about",
     num: "01",
     label: { en: "About", vi: "Giới thiệu" },
-    tag: { en: "Who is this developer — and where is she heading?", vi: "Lập trình viên này là ai — và đang hướng tới đâu?" },
+    tag: { en: "Who is this developer, and where is she heading?", vi: "Lập trình viên này là ai, và đang hướng tới đâu?" },
     hint: { en: "Intro, education, stats and career direction.", vi: "Giới thiệu, học vấn, chỉ số và định hướng phát triển." },
   },
   {
@@ -30,10 +30,10 @@ export const menu: MenuItem[] = [
     num: "03",
     label: { en: "Projects", vi: "Dự án" },
     tag: {
-      en: "Missions taken on — and the one still in progress.",
-      vi: "Những nhiệm vụ đã nhận — và nhiệm vụ vẫn đang tiếp diễn.",
+      en: "Missions taken on, and the one still in progress.",
+      vi: "Những nhiệm vụ đã nhận, và nhiệm vụ vẫn đang tiếp diễn.",
     },
-    hint: { en: "Featured work — open any project for the full story.", vi: "Dự án tiêu biểu — mở từng dự án để xem chi tiết." },
+    hint: { en: "Featured work: open any project for the full story.", vi: "Dự án tiêu biểu: mở từng dự án để xem chi tiết." },
   },
   {
     path: "/tech-stack",

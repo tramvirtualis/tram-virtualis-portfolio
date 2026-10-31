@@ -20,7 +20,7 @@ export function Shell() {
   }, [pathname]);
 
   useEffect(() => {
-    document.title = item ? `${t(item.label)} — Ngoc Tram` : `Ngoc Tram — ${t(profile.title)}`;
+    document.title = item ? `${t(item.label)} · Ngoc Tram` : `Ngoc Tram · ${t(profile.title)}`;
   }, [item, t]);
 
   return (

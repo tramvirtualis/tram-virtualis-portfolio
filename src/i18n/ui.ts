@@ -16,8 +16,8 @@ export const ui = {
   classLabel: { en: "Class", vi: "Lớp" },
   arcanaTitle: { en: "THE DEVELOPER", vi: "LẬP TRÌNH VIÊN" },
   arcanaNote: {
-    en: "Arcana 0 — the beginning of the journey: endless potential, ready to learn.",
-    vi: "Arcana 0 — khởi đầu hành trình: tiềm năng vô hạn, sẵn sàng học hỏi.",
+    en: "Arcana 0, the beginning of the journey: endless potential, ready to learn.",
+    vi: "Arcana 0, khởi đầu hành trình: tiềm năng vô hạn, sẵn sàng học hỏi.",
   },
   records: { en: "Records", vi: "Lý lịch" },
   careerDirection: { en: "Career direction", vi: "Định hướng phát triển" },
@@ -47,7 +47,7 @@ export const ui = {
   previous: { en: "Previous", vi: "Trước" },
   next: { en: "Next", vi: "Tiếp" },
   allProjects: { en: "All projects", vi: "Tất cả dự án" },
-  openSlot: { en: "Open slot — your project?", vi: "Còn trống — dự án của bạn?" },
+  openSlot: { en: "Open slot: your project?", vi: "Còn trống: dự án của bạn?" },
 
   // Contact
   phone: { en: "Phone", vi: "Điện thoại" },

@@ -68,7 +68,7 @@ const glyphPaths: Record<string, ReactNode> = {
   ),
 };
 
-/** Line icon inside a ring — the emblem next to list rows. */
+/** Line icon inside a ring: the emblem next to list rows. */
 export function Emblem({ name, children }: { name?: string; children?: ReactNode }) {
   return (
     <span className="emblem" aria-hidden="true">

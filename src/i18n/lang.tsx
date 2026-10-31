@@ -11,7 +11,7 @@ function initialLang(): Lang {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === "en" || saved === "vi") return saved;
   } catch {
-    /* storage blocked — fall through */
+    /* storage blocked, fall through */
   }
   return navigator.language?.toLowerCase().startsWith("vi") ? "vi" : "en";
 }

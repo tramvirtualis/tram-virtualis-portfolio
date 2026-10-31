@@ -198,8 +198,8 @@ export const projects: Project[] = [
         vi: "Xây dựng và tích hợp trợ lý AI trên n8n, có lưu lịch sử chat và bảo mật API công cụ cho agent",
       },
       {
-        en: "Implemented the core booking and payment flow — movie and showtime selection through checkout, ZaloPay order creation, payment callbacks and ticket / QR display",
-        vi: "Hiện thực luồng đặt vé và thanh toán cốt lõi — từ chọn phim, suất chiếu đến thanh toán, tạo đơn ZaloPay, xử lý callback và hiển thị vé / QR",
+        en: "Implemented the core booking and payment flow, from movie and showtime selection through checkout, with ZaloPay order creation, payment callbacks and ticket / QR display",
+        vi: "Hiện thực luồng đặt vé và thanh toán cốt lõi, từ chọn phim, suất chiếu đến thanh toán, tạo đơn ZaloPay, xử lý callback và hiển thị vé / QR",
       },
       {
         en: "Delivered real-time seat selection with WebSocket",

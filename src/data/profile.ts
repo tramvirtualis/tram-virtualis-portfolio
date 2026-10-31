@@ -1,4 +1,4 @@
-// Personal details — sourced from NguyenThiNgocTram_FresherCV.pdf.
+// Personal details, sourced from NguyenThiNgocTram_FresherCV.pdf.
 // Edit here; every screen reads from this file. { en, vi } = shown per language.
 import type { Text } from "../i18n/lang";
 
@@ -11,8 +11,8 @@ export const profile = {
   title: { en: "Full-stack Developer", vi: "Lập trình viên Full-stack" } as Text,
   rank: "Fresher" as Text,
   statement: {
-    en: "I build web applications end to end — from Spring Boot services and secure REST APIs to React interfaces people enjoy using. I learn fast, lean on AI tools wisely, and care about the details between the layers.",
-    vi: "Tôi xây dựng ứng dụng web trọn vẹn — từ service Spring Boot, REST API bảo mật đến giao diện React mà người dùng thích sử dụng. Tôi học nhanh, dùng công cụ AI có chọn lọc và chăm chút từng chi tiết giữa các tầng.",
+    en: "I build web applications end to end, from Spring Boot services and secure REST APIs to React interfaces people enjoy using. I learn fast, lean on AI tools wisely, and care about the details between the layers.",
+    vi: "Tôi xây dựng ứng dụng web trọn vẹn, từ service Spring Boot, REST API bảo mật đến giao diện React mà người dùng thích sử dụng. Tôi học nhanh, dùng công cụ AI có chọn lọc và chăm chút từng chi tiết giữa các tầng.",
   } as Text,
   summary: {
     en: "Software Engineering graduate with a solid foundation in OOP, APIs and the software development process, shipping projects with Java, Spring Boot and ReactJS.",
@@ -36,12 +36,12 @@ export const records: { label: Text; value: Text }[] = [
   },
   {
     label: { en: "Major", vi: "Chuyên ngành" },
-    value: { en: "Software Engineering · 2022–2026", vi: "Công nghệ Phần mềm · 2022–2026" },
+    value: { en: "Software Engineering · 2022 to 2026", vi: "Công nghệ Phần mềm · 2022 đến 2026" },
   },
   { label: "GPA", value: "3.14 / 4.0" },
   {
     label: { en: "English", vi: "Ngoại ngữ" },
-    value: { en: "TOEIC L&R 825 / 990", vi: "Tiếng Anh — TOEIC L&R 825 / 990" },
+    value: { en: "TOEIC L&R 825 / 990", vi: "Tiếng Anh: TOEIC L&R 825 / 990" },
   },
 ];
 
@@ -207,7 +207,7 @@ export const timeline: { year: Text; title: Text; text: Text }[] = [
 // Career direction: from a front-end focused full-stack developer to a Business Analyst.
 export const goals: { horizon: Text; title: Text; text: Text }[] = [
   {
-    horizon: { en: "Short term · 0–1 yr", vi: "Ngắn hạn · 0–1 năm" },
+    horizon: { en: "Short term · 0 to 1 yr", vi: "Ngắn hạn · 0 đến 1 năm" },
     title: { en: "Full-stack developer, front-end focused", vi: "Full-stack Developer thiên về Frontend" },
     text: {
       en: "Keep working full-stack with a clear focus on the front end: deepen React and TypeScript, improve UI quality, performance and testing. Alongside that, learn Figma properly to sketch wireframes and prototypes before coding, and get involved early in clarifying requirements with the team and stakeholders.",
@@ -215,7 +215,7 @@ export const goals: { horizon: Text; title: Text; text: Text }[] = [
     },
   },
   {
-    horizon: { en: "Mid term · 1–3 yrs", vi: "Trung hạn · 1–3 năm" },
+    horizon: { en: "Mid term · 1 to 3 yrs", vi: "Trung hạn · 1 đến 3 năm" },
     title: { en: "Building Business Analyst skills", vi: "Trau dồi kỹ năng Business Analyst" },
     text: {
       en: "Study business analysis systematically: eliciting and analysing requirements, writing user stories, acceptance criteria and specification documents, and modelling processes with BPMN and UML. Use Figma wireframes and prototypes to agree on requirements early, while keeping my technical skills current (APIs, databases, SQL) so I can work closely with developers. Take on a combined developer and BA role in projects.",
@@ -223,7 +223,7 @@ export const goals: { horizon: Text; title: Text; text: Text }[] = [
     },
   },
   {
-    horizon: { en: "Long term · 3–5 yrs", vi: "Dài hạn · 3–5 năm" },
+    horizon: { en: "Long term · 3 to 5 yrs", vi: "Dài hạn · 3 đến 5 năm" },
     title: { en: "A tech-savvy Business Analyst", vi: "Business Analyst am hiểu kỹ thuật" },
     text: {
       en: "Work as a full-time Business Analyst, bridging clients and the tech team with a solid technical and UI/UX background. Use data to propose solutions and help shape the product, growing towards Senior BA and Product Owner roles.",
