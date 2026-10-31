@@ -135,22 +135,6 @@
   gap: 2.4rem;
   animation: preview-in 0.35s var(--ease);
 }
-.preview__title {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-style: italic;
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.preview__stack {
-  margin: 0.8rem 0 1.3rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--blue);
-}
 @keyframes preview-in {
   from {
     opacity: 0;
@@ -280,9 +264,6 @@
   text-transform: uppercase;
   color: var(--white);
   transform: skewX(var(--skew));
-}
-.preview__text .role-line {
-  margin: 0.5rem 0 0;
 }
 .mini-label {
   margin: 1.3rem 0 0.6rem;

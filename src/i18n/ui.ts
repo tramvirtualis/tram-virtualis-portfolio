@@ -29,7 +29,6 @@ export const ui = {
   // Skills
 
   // Projects
-  openQuest: { en: "Open project", vi: "Mở dự án" },
   inProgress: { en: "In progress", vi: "Đang phát triển" },
   shipped: { en: "Completed", vi: "Đã hoàn thành" },
   status: { en: "Status", vi: "Trạng thái" },
@@ -48,15 +47,9 @@ export const ui = {
   previous: { en: "Previous", vi: "Trước" },
   next: { en: "Next", vi: "Tiếp" },
   allProjects: { en: "All projects", vi: "Tất cả dự án" },
-  more: { en: "more", vi: "nữa" },
   openSlot: { en: "Open slot — your project?", vi: "Còn trống — dự án của bạn?" },
 
   // Contact
-  contactLead: {
-    en: "Open to developer roles and collaborations. I usually reply within a day.",
-    vi: "Sẵn sàng cho vị trí lập trình viên và các dự án hợp tác. Tôi thường phản hồi trong vòng một ngày.",
-  },
   phone: { en: "Phone", vi: "Điện thoại" },
   connect: { en: "Connect on LinkedIn", vi: "Kết nối LinkedIn" },
-  basedIn: { en: "Based in", vi: "Hiện ở" },
 } as const;

@@ -60,27 +60,6 @@ export function ProjectsPage() {
             <Highlight seed={selected + 51} className="preview__hl" />
             <ProjectPoster kind={p.poster} />
           </div>
-          <div className="panel preview__text">
-            <h2 className="preview__title">{t(p.title)}</h2>
-            <p className="role-line">
-              <span className="role-line__label">{t(ui.myRole)}</span>
-              {t(p.role)}
-            </p>
-            <p className="body-copy">{t(p.description)}</p>
-            <h3 className="mini-label">{t(ui.whatIDid)}</h3>
-            <ul className="feature-bullets">
-              {p.contributions.slice(0, 2).map((c, i) => (
-                <li key={i}>{t(c)}</li>
-              ))}
-            </ul>
-            <p className="preview__stack">
-              {p.stack.slice(0, 6).join(" · ")}
-              {p.stack.length > 6 && ` · +${p.stack.length - 6} ${t(ui.more)}`}
-            </p>
-            <Link to={`/projects/${p.id}`} className="strip strip--light">
-              {t(ui.openQuest)} <span aria-hidden="true">▸</span>
-            </Link>
-          </div>
         </aside>
       </div>
     </ScreenLayout>

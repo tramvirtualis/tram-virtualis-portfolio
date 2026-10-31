@@ -14,14 +14,12 @@ export type Job = {
   project?: string;
 };
 
-const datesTbd: Text = { en: "Dates — to be added", vi: "Thời gian — cập nhật sau" };
-
 export const jobs: Job[] = [
   {
     id: "dat-viet-group",
     company: "Đất Việt Group",
     role: { en: "Full-stack Developer", vi: "Lập trình viên Full-stack" },
-    period: datesTbd,
+    period: { en: "2026 – present", vi: "2026 – nay" },
     type: { en: "Real estate", vi: "Bất động sản" },
     summary: {
       en: "Building Dat Viet Group's digital real estate platform. I own the entire Project module end to end and designed the platform's main user interfaces.",
@@ -52,7 +50,7 @@ export const jobs: Job[] = [
     id: "hitek",
     company: "Hitek Solution",
     role: { en: "AI Engineer Intern", vi: "Kỹ sư AI (Thực tập)" },
-    period: datesTbd,
+    period: "2025",
     type: { en: "Internship", vi: "Thực tập" },
     summary: {
       en: "Joined the AI team as a Computer Vision intern, owning data preparation and model training for recognition tasks while learning to deploy models as services with FastAPI.",
