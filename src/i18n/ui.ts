@@ -10,7 +10,6 @@ export const ui = {
 
   // Main menu
   selectedCommand: { en: "Selected command", vi: "Lệnh đang chọn" },
-  viewProjects: { en: "View projects", vi: "Xem dự án" },
   downloadCv: { en: "Download CV", vi: "Tải CV" },
 
   // Profile (status screen)

@@ -39,12 +39,12 @@ export const projects: Project[] = [
     title: { en: "Digital Real Estate", vi: "Bất động sản số" },
     kicker: { en: "Real estate platform · Đất Việt Group", vi: "Nền tảng bất động sản · Đất Việt Group" },
     description: {
-      en: "A full-stack real estate platform for Dat Viet Group, covering project showcases, unit booking, recruitment, community and an admin console. I built the entire Project module end to end, from researching the sales process and designing the database to the APIs and the user interface, and designed most of the platform's main UI.",
-      vi: "Nền tảng bất động sản full-stack cho Đất Việt Group, gồm giới thiệu dự án, giữ chỗ căn hộ, tuyển dụng, cộng đồng và trang quản trị. Tôi xây dựng trọn vẹn module Dự án, từ nghiên cứu nghiệp vụ bán hàng, thiết kế cơ sở dữ liệu, phát triển API cho đến giao diện, đồng thời đảm nhiệm thiết kế phần lớn giao diện chính của nền tảng.",
+      en: "A full-stack real estate platform for Dat Viet Group, covering project showcases, unit booking, recruitment, community and an admin console. I built the entire Project module end to end, from researching the sales process and designing the database to the APIs and the user interface, and designed the platform's main UI.",
+      vi: "Nền tảng bất động sản full-stack cho Đất Việt Group, gồm giới thiệu dự án, giữ chỗ căn hộ, tuyển dụng, cộng đồng và trang quản trị. Tôi xây dựng trọn vẹn module Dự án, từ nghiên cứu nghiệp vụ bán hàng, thiết kế cơ sở dữ liệu, phát triển API cho đến giao diện, đồng thời đảm nhiệm thiết kế các giao diện chính của nền tảng.",
     },
     role: {
       en: "Built the entire Project module (back end and front end) and led the platform's main UI/UX design",
-      vi: "Xây dựng toàn bộ module Dự án (back end và front end), thiết kế UI/UX phần lớn giao diện chính",
+      vi: "Xây dựng toàn bộ module Dự án (back end và front end), thiết kế UI/UX các giao diện chính",
     },
     contributions: [
       {
@@ -52,8 +52,8 @@ export const projects: Project[] = [
         vi: "Nghiên cứu nghiệp vụ bán hàng bất động sản (phân khu, tòa nhà, quỹ căn, bảng hàng, chính sách bán hàng và quy trình giữ chỗ), chuyển thành yêu cầu và mô hình dữ liệu cho module Dự án.",
       },
       {
-        en: "Designed the UI/UX for most of the platform's main screens, including every screen of the Project module: project listing and detail, floor plans, sales sheets, unit inventory, 360° tours and the project admin pages.",
-        vi: "Đảm nhiệm thiết kế UI/UX phần lớn giao diện chính của nền tảng, trong đó có toàn bộ màn hình của module Dự án: danh sách và chi tiết dự án, mặt bằng, bảng hàng, quỹ căn, tour 360° và trang quản trị dự án.",
+        en: "Designed the UI/UX for the platform's main screens, including every screen of the Project module: project listing and detail, floor plans, sales sheets, unit inventory, 360° tours and the project admin pages.",
+        vi: "Đảm nhiệm thiết kế UI/UX các giao diện chính của nền tảng, trong đó có toàn bộ màn hình của module Dự án: danh sách và chi tiết dự án, mặt bằng, bảng hàng, quỹ căn, tour 360° và trang quản trị dự án.",
       },
       {
         en: "Designed the database and built the APIs for two project types: low-rise (zone → unit) and high-rise (zone → building → floor and axis → unit).",

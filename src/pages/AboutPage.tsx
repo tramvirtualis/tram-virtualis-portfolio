@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import { Link } from "react-router-dom";
 import { ScreenLayout } from "../components/layout/ScreenLayout";
 import { ArcanaCard, Highlight } from "../components/ornaments/Ornaments";
 import { menuItem } from "../data/menu";
@@ -111,14 +110,6 @@ export function AboutPage() {
               </li>
             ))}
           </ol>
-          <div className="next-links">
-            <Link to="/experience" className="strip strip--ink">
-              {t(menuItem("/experience").label)} <span aria-hidden="true">▸</span>
-            </Link>
-            <Link to="/projects" className="strip">
-              {t(ui.viewProjects)} <span aria-hidden="true">▸</span>
-            </Link>
-          </div>
         </section>
       </div>
     </ScreenLayout>

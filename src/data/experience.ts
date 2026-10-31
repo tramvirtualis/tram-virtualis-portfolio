@@ -24,8 +24,8 @@ export const jobs: Job[] = [
     period: datesTbd,
     type: { en: "Real estate", vi: "Bất động sản" },
     summary: {
-      en: "Building Dat Viet Group's digital real estate platform. I own the entire Project module end to end and designed most of the platform's main user interface.",
-      vi: "Phát triển nền tảng bất động sản số của Đất Việt Group. Tôi phụ trách trọn vẹn module Dự án từ back end đến front end và đảm nhiệm thiết kế phần lớn giao diện chính của nền tảng.",
+      en: "Building Dat Viet Group's digital real estate platform. I own the entire Project module end to end and designed the platform's main user interfaces.",
+      vi: "Phát triển nền tảng bất động sản số của Đất Việt Group. Tôi phụ trách trọn vẹn module Dự án từ back end đến front end và đảm nhiệm thiết kế các giao diện chính của nền tảng.",
     },
     points: [
       {
@@ -41,8 +41,8 @@ export const jobs: Job[] = [
         vi: "Xử lý đặt chỗ đồng thời bằng khóa phân tán Redis, tự động hết hạn giữ chỗ và cơ chế khóa giữ chỗ chống đặt ảo",
       },
       {
-        en: "Designed the UI/UX for most of the platform's main screens",
-        vi: "Đảm nhiệm thiết kế UI/UX phần lớn giao diện chính của nền tảng",
+        en: "Designed the UI/UX for the platform's main screens",
+        vi: "Đảm nhiệm thiết kế UI/UX các giao diện chính của nền tảng",
       },
     ],
     stack: ["React", "TypeScript", "Spring Boot", "PostgreSQL", "Redis", "Docker"],

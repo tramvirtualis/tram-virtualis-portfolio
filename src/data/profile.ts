@@ -82,7 +82,7 @@ export const arsenal: ArsenalGroup[] = [
   {
     school: "Frontend",
     glyph: "shield",
-    summary: { en: "My main strength. I built most of the user interfaces in my projects.", vi: "Thế mạnh chính của tôi, tôi đảm nhiệm phần lớn giao diện trong các dự án." },
+    summary: { en: "My main strength. I built the main user interfaces in my projects.", vi: "Thế mạnh chính của tôi, tôi đảm nhiệm các giao diện chính trong các dự án." },
     tech: [
       { name: "ReactJS", note: { en: "Built the interfaces of Cinesmart and Digital Real Estate, from customer pages to admin consoles.", vi: "Xây dựng giao diện cho Cinesmart và Bất động sản số, từ trang khách hàng đến trang quản trị." } },
       { name: "Tailwind CSS", note: { en: "Fast, consistent and responsive layouts across screen sizes.", vi: "Dựng giao diện nhanh, đồng nhất và responsive trên nhiều kích thước màn hình." } },
@@ -200,18 +200,18 @@ export const timeline: { year: Text; title: Text; text: Text }[] = [
   },
   {
     year: "2026",
-    title: { en: "Shipped Cinesmart", vi: "Hoàn thành Cinesmart" },
+    title: { en: "Completed my university program", vi: "Hoàn thành chương trình đại học" },
     text: {
-      en: "Built core booking, payment and real-time seat selection for a full movie-ticket platform.",
-      vi: "Xây dựng luồng đặt vé, thanh toán và chọn ghế thời gian thực cho nền tảng bán vé xem phim.",
+      en: "Completed the Bachelor of Information Technology program at HCM-UTE, majoring in Software Engineering.",
+      vi: "Hoàn thành chương trình Cử nhân Công nghệ Thông tin tại HCM-UTE, chuyên ngành Công nghệ Phần mềm.",
     },
   },
   {
     year: { en: "Now", vi: "Nay" },
-    title: { en: "Digital Real Estate platform", vi: "Nền tảng Bất động sản số" },
+    title: { en: "IT Intern at Dat Viet Group", vi: "Thực tập sinh IT tại Đất Việt Group" },
     text: {
-      en: "Building a real estate platform end to end with React, TypeScript, Spring Boot and PostgreSQL.",
-      vi: "Phát triển trọn vẹn nền tảng bất động sản với React, TypeScript, Spring Boot và PostgreSQL.",
+      en: "Contributing to the company's digital real estate platform.",
+      vi: "Tham gia phát triển nền tảng bất động sản số của công ty.",
     },
   },
 ];
