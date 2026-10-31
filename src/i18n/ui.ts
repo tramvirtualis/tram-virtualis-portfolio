@@ -47,7 +47,6 @@ export const ui = {
   previous: { en: "Previous", vi: "Trước" },
   next: { en: "Next", vi: "Tiếp" },
   allProjects: { en: "All projects", vi: "Tất cả dự án" },
-  openSlot: { en: "Open slot: your project?", vi: "Còn trống: dự án của bạn?" },
 
   // Contact
   phone: { en: "Phone", vi: "Điện thoại" },

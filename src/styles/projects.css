@@ -118,16 +118,6 @@
   opacity: 1;
   translate: 0 0;
 }
-.quest--empty {
-  background: transparent;
-  border: 2px dashed var(--ink);
-  color: var(--ink);
-}
-.quest--empty .quest__kicker,
-.quest--empty .quest__num {
-  color: var(--mute);
-}
-
 .quests__preview {
   position: sticky;
   top: 6rem;

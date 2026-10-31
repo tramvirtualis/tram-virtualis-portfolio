@@ -5,7 +5,6 @@ import { Highlight } from "../components/ornaments/Ornaments";
 import { ProjectPoster } from "../components/ornaments/ProjectPoster";
 import { menuItem } from "../data/menu";
 import { projects } from "../data/projects";
-import { profile } from "../data/profile";
 import { useLang } from "../i18n/lang";
 import { ui } from "../i18n/ui";
 
@@ -44,14 +43,6 @@ export function ProjectsPage() {
               </Link>
             </li>
           ))}
-          <li className="rise" style={{ "--i": projects.length + 2 } as CSSProperties}>
-            <a href={`mailto:${profile.email}`} className="row quest quest--empty">
-              <span className="quest__num">··</span>
-              <span className="quest__main">
-                <span className="quest__kicker">{t(ui.openSlot)}</span>
-              </span>
-            </a>
-          </li>
         </ol>
 
         {/* Preview of the selected project */}
