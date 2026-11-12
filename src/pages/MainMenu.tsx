@@ -105,10 +105,7 @@ export function MainMenu() {
 
 
         <div className="title__actions rise" style={{ "--i": 7 } as CSSProperties}>
-          <a className="strip strip--ink" href={profile.github} target="_blank" rel="noreferrer">
-            GitHub <span aria-hidden="true">↗</span>
-          </a>
-          <a className="strip" href={`mailto:${profile.email}`}>
+          <a className="strip strip--ink" href={`mailto:${profile.email}`}>
             Email <span aria-hidden="true">✉</span>
           </a>
         </div>

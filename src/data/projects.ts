@@ -293,7 +293,7 @@ export const projects: Project[] = [
       "Vercel",
       "Railway",
     ],
-    links: [{ label: "GitHub", href: "https://github.com/tramvirtualis/Cinesmart" }],
+    links: [],
     poster: "cinema",
   },
 ];

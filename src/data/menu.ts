@@ -54,7 +54,7 @@ export const menu: MenuItem[] = [
     num: "06",
     label: { en: "Contact", vi: "Liên hệ" },
     tag: { en: "Forge a new bond.", vi: "Kết nối một mối liên kết mới." },
-    hint: { en: "Email, phone and GitHub.", vi: "Email, số điện thoại và GitHub." },
+    hint: { en: "Email and phone.", vi: "Email và số điện thoại." },
   },
 ];
 

@@ -27,18 +27,10 @@ const channels: Channel[] = [
     action: { en: "Call now", vi: "Gọi ngay" },
     icon: <path d="M6.5 3h3l1.8 4.6-2.2 1.5a11.5 11.5 0 0 0 5.8 5.8l1.5-2.2L21 14.5v3a2.5 2.5 0 0 1-2.5 2.5A15.5 15.5 0 0 1 4 5.5 2.5 2.5 0 0 1 6.5 3Z" />,
   },
-  {
-    label: "GitHub",
-    value: profile.github.replace("https://", ""),
-    href: profile.github,
-    action: { en: "Open profile", vi: "Xem hồ sơ" },
-    icon: <path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16" />,
-    external: true,
-  },
 ];
 
 /**
- * Contact: three horizontal rows on a deep blue stage, each stepping a little to the right.
+ * Contact: two horizontal rows on a deep blue stage, each stepping a little to the right.
  * Everything is visible at once; hovering a row lights it up in white.
  */
 export function ContactPage() {

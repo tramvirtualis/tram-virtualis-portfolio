@@ -2,7 +2,8 @@ import type { CSSProperties } from "react";
 import { ScreenLayout } from "../components/layout/ScreenLayout";
 import { ArcanaCard, Highlight } from "../components/ornaments/Ornaments";
 import { menuItem } from "../data/menu";
-import { goals, profile, records, timeline, traits } from "../data/profile";
+import { profile, records, timeline, traits } from "../data/profile";
+import { CareerPath } from "../components/profile/CareerPath";
 import { useLang } from "../i18n/lang";
 import { ui } from "../i18n/ui";
 
@@ -53,23 +54,8 @@ export function AboutPage() {
         </div>
       </div>
 
-      {/* Career direction */}
-      <section className="goals rise" style={{ "--i": 6 } as CSSProperties}>
-        <h2 className="section-label">{t(ui.careerDirection)}</h2>
-        <ol className="goals__list">
-          {goals.map((g, i) => (
-            <li key={i} className="goal">
-              <span className="goal__num">{String(i + 1).padStart(2, "0")}</span>
-              <p className="goal__horizon">{t(g.horizon)}</p>
-              <h3 className="goal__title">{t(g.title)}</h3>
-              <p className="goal__text">{t(g.text)}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       <div className="profile-lower">
-        <section className="panel rise" style={{ "--i": 7 } as CSSProperties}>
+        <section className="panel rise" style={{ "--i": 6 } as CSSProperties}>
           <h2 className="panel__title">{t(ui.records)}</h2>
           <dl className="records">
             {records.map((r, i) => (
@@ -81,7 +67,7 @@ export function AboutPage() {
           </dl>
         </section>
 
-        <section className="panel rise" style={{ "--i": 8 } as CSSProperties}>
+        <section className="panel rise" style={{ "--i": 7 } as CSSProperties}>
           <h2 className="panel__title">{t(ui.journal)}</h2>
           <ol className="journal">
             {timeline.map((b, i) => (
@@ -97,6 +83,12 @@ export function AboutPage() {
           </ol>
         </section>
       </div>
+
+      {/* Career direction */}
+      <section className="goals rise" style={{ "--i": 9 } as CSSProperties}>
+        <h2 className="section-label">{t(ui.careerDirection)}</h2>
+        <CareerPath />
+      </section>
     </ScreenLayout>
   );
 }

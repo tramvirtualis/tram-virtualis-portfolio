@@ -21,7 +21,6 @@ export const profile = {
   location: { en: "Thu Duc, Ho Chi Minh City", vi: "Thủ Đức, TP. Hồ Chí Minh" } as Text,
   email: "ngoctramngff4@gmail.com",
   phone: "0398117422",
-  github: "https://github.com/tramvirtualis",
   // TODO: replace with your LinkedIn profile URL.
   linkedin: "https://www.linkedin.com/",
   cv: "/NguyenThiNgocTram_FresherCV.pdf",
@@ -204,30 +203,71 @@ export const timeline: { year: Text; title: Text; text: Text }[] = [
   },
 ];
 
-// Career direction: from a front-end focused full-stack developer to a Business Analyst.
-export const goals: { horizon: Text; title: Text; text: Text }[] = [
+// Career direction, written for readers outside tech: from web developer to Business Analyst (BA).
+// `analysis` = rough share of my time spent on analysis instead of coding; `years` sizes the roadmap bar.
+export const careerIntro: Text = {
+  en: "Right now I build websites, focusing on the interface, the user experience and understanding the business behind each feature. My goal is to become a Senior Business Analyst (BA) with strong technical skills: the person who talks with clients, turns what they need into clear requirements and makes sure the team builds exactly that. Because I can still read code, query data and check APIs myself, I can answer technical questions on the spot and catch problems before they reach the developers.",
+  vi: "Hiện tại tôi là lập trình viên website, tập trung vào giao diện, trải nghiệm người dùng và tìm hiểu nghiệp vụ đằng sau mỗi tính năng. Mục tiêu của tôi là trở thành Senior Business Analyst (BA) vững về kỹ thuật: người trao đổi với khách hàng, biến nhu cầu của họ thành yêu cầu rõ ràng và đảm bảo đội làm ra đúng như vậy. Nhờ vẫn đọc được code, tự truy vấn dữ liệu và kiểm tra API, tôi có thể trả lời ngay các câu hỏi kỹ thuật và phát hiện vấn đề trước khi chuyển cho đội lập trình.",
+};
+
+// at = position on the timeline diagram (decimal year), label = short text shown on it
+export type GoalStep = { at: number; label: Text; when: Text; what: Text };
+export type Goal = { period: Text; years: number; from: number; to: number; short: Text; title: Text; text: Text; analysis: number; steps: GoalStep[] };
+
+export const goals: Goal[] = [
   {
-    horizon: { en: "Short term · 0 to 1 yr", vi: "Ngắn hạn · 0 đến 1 năm" },
-    title: { en: "Full-stack developer, front-end focused", vi: "Full-stack Developer thiên về Frontend" },
+    period: { en: "Late 2026 to 2027", vi: "Cuối 2026 đến hết 2027" },
+    from: 2026.8,
+    to: 2028,
+    years: 1,
+    short: { en: "Developer", vi: "Lập trình" },
+    title: { en: "Level up my programming skills", vi: "Nâng cao kỹ năng lập trình" },
     text: {
-      en: "Keep working full-stack with a clear focus on the front end: deepen React and TypeScript, improve UI quality, performance and testing. Alongside that, learn Figma properly to sketch wireframes and prototypes before coding, and get involved early in clarifying requirements with the team and stakeholders.",
-      vi: "Tiếp tục làm full-stack nhưng tập trung chuyên sâu Frontend: nâng cao React, TypeScript, chất lượng giao diện, hiệu năng và kiểm thử. Song song đó, học bài bản Figma để tự phác thảo wireframe, prototype trước khi code, đồng thời chủ động tham gia làm rõ yêu cầu cùng đội ngũ và các bên liên quan.",
+      en: "Get stronger as a developer: write solid, maintainable code, learn how to design the architecture of a system, and learn to run applications on the cloud, meaning servers rented over the internet that can grow with the number of users.",
+      vi: "Tập trung nâng cao tay nghề lập trình: viết code chắc chắn, dễ bảo trì, học cách thiết kế kiến trúc hệ thống và vận hành ứng dụng trên nền tảng đám mây (cloud), tức máy chủ thuê qua Internet có thể mở rộng theo số lượng người dùng.",
     },
+    analysis: 10,
+    steps: [
+      { at: 2026.9, label: { en: "Finish the real estate site", vi: "Hoàn thiện web bất động sản" }, when: { en: "Late 2026", vi: "Cuối 2026" }, what: { en: "Complete the real estate website at Dat Viet Group and get it ready for real users.", vi: "Hoàn thiện website bất động sản tại Đất Việt Group, sẵn sàng đưa vào sử dụng thực tế." } },
+      { at: 2027.25, label: { en: "Code quality, system architecture", vi: "Lập trình, kiến trúc hệ thống" }, when: { en: "First half of 2027", vi: "Nửa đầu 2027" }, what: { en: "Sharpen my coding and study system architecture: how to split a piece of software into well organised parts so it stays easy to extend and maintain as it grows.", vi: "Nâng cao kỹ năng lập trình và học thiết kế kiến trúc hệ thống, tức cách chia và sắp xếp các phần của một phần mềm sao cho dễ mở rộng, dễ bảo trì khi hệ thống ngày càng lớn." } },
+      { at: 2027.75, label: { en: "Cloud computing", vi: "Điện toán đám mây (cloud)" }, when: { en: "Second half of 2027", vi: "Nửa cuối 2027" }, what: { en: "Learn and practise cloud computing: putting a website online, backing up data automatically and scaling up when traffic rises.", vi: "Học và thực hành điện toán đám mây: đưa website lên máy chủ trên Internet, tự động sao lưu dữ liệu và mở rộng khi lượng truy cập tăng cao." } },
+    ],
   },
   {
-    horizon: { en: "Mid term · 1 to 3 yrs", vi: "Trung hạn · 1 đến 3 năm" },
-    title: { en: "Building Business Analyst skills", vi: "Trau dồi kỹ năng Business Analyst" },
+    period: { en: "2028 to 2029", vi: "2028 đến 2029" },
+    from: 2028,
+    to: 2030,
+    years: 2,
+    short: { en: "Developer + BA", vi: "Lập trình + BA" },
+    title: { en: "Code and learn to be a BA", vi: "Vừa lập trình vừa học làm BA" },
     text: {
-      en: "Study business analysis systematically: eliciting and analysing requirements, writing user stories, acceptance criteria and specification documents, and modelling processes with BPMN and UML. Use Figma wireframes and prototypes to agree on requirements early, while keeping my technical skills current (APIs, databases, SQL) so I can work closely with developers. Take on a combined developer and BA role in projects.",
-      vi: "Học bài bản phân tích nghiệp vụ: thu thập và phân tích yêu cầu, viết user story, tiêu chí nghiệm thu và tài liệu đặc tả, mô hình hóa quy trình bằng BPMN và UML. Dùng Figma để dựng wireframe, prototype giúp thống nhất yêu cầu ngay từ đầu, đồng thời duy trì và cập nhật kiến thức kỹ thuật (API, cơ sở dữ liệu, SQL) để phối hợp hiệu quả với đội phát triển. Từng bước đảm nhận vai trò vừa phát triển vừa phân tích nghiệp vụ trong dự án.",
+      en: "Keep coding, but spend more time finding out what clients need and writing it down clearly for the team.",
+      vi: "Vẫn lập trình, nhưng dành nhiều thời gian hơn để tìm hiểu khách hàng cần gì và ghi lại thật rõ cho cả đội.",
     },
+    analysis: 45,
+    steps: [
+      { at: 2028.25, label: { en: "Study BA", vi: "Học BA" }, when: { en: "First half of 2028", vi: "Nửa đầu 2028" }, what: { en: "Study Business Analysis (BA) systematically: how to gather requirements from clients, ask the right questions and turn what they need into a clear list of features.", vi: "Học BA một cách bài bản: cách thu thập yêu cầu từ khách hàng, đặt đúng câu hỏi và biến nhu cầu của họ thành danh sách tính năng rõ ràng." } },
+      { at: 2028.75, label: { en: "Write feature specs", vi: "Viết mô tả tính năng" }, when: { en: "Second half of 2028", vi: "Nửa cuối 2028" }, what: { en: "Write feature descriptions myself: what it does, who uses it and when it counts as done.", vi: "Tự viết mô tả cho từng tính năng: làm gì, ai dùng và thế nào là đạt." } },
+      { at: 2029.25, label: { en: "Process diagrams, first analysis", vi: "Vẽ quy trình, phân tích 1 phần dự án" }, when: { en: "First half of 2029", vi: "Nửa đầu 2029" }, what: { en: "Draw diagrams of how the work flows and handle the analysis for a small part of a project.", vi: "Vẽ sơ đồ quy trình làm việc và phụ trách phân tích cho một phần nhỏ của dự án." } },
+      { at: 2029.75, label: { en: "International BA certificate", vi: "Chứng chỉ BA quốc tế" }, when: { en: "Second half of 2029", vi: "Nửa cuối 2029" }, what: { en: "Earn an international BA certificate to confirm my skills against a recognised standard and get ready to take on the BA role officially.", vi: "Lấy chứng chỉ BA quốc tế để khẳng định năng lực theo chuẩn được công nhận và sẵn sàng chính thức đảm nhận vai trò BA." } },
+    ],
   },
   {
-    horizon: { en: "Long term · 3 to 5 yrs", vi: "Dài hạn · 3 đến 5 năm" },
-    title: { en: "A tech-savvy Business Analyst", vi: "Business Analyst am hiểu kỹ thuật" },
+    period: { en: "2030 to 2033", vi: "2030 đến 2033" },
+    from: 2030,
+    to: 2034,
+    years: 2,
+    short: { en: "Senior BA", vi: "Senior BA" },
+    title: { en: "Senior BA with a technical edge", vi: "Senior BA vững kỹ thuật" },
     text: {
-      en: "Work as a full-time Business Analyst, bridging clients and the tech team with a solid technical and UI/UX background. Use data to propose solutions and help shape the product, growing towards Senior BA and Product Owner roles.",
-      vi: "Chính thức đảm nhận vai trò Business Analyst, làm cầu nối giữa khách hàng và đội kỹ thuật với lợi thế nền tảng kỹ thuật và UI/UX vững. Dùng dữ liệu để đề xuất giải pháp, góp phần định hướng sản phẩm và hướng tới vị trí Senior BA, Product Owner.",
+      en: "Lead the analysis for whole projects: the go-between who helps clients and developers understand each other. Coding skills stay part of the job, for checking data, reading APIs and spotting technical risks early.",
+      vi: "Phụ trách phân tích cho cả dự án, là người đứng giữa giúp khách hàng và đội lập trình hiểu đúng ý nhau. Kỹ năng lập trình vẫn là một phần công việc: tự kiểm tra dữ liệu, đọc API và phát hiện sớm rủi ro kỹ thuật.",
     },
+    analysis: 75,
+    steps: [
+      { at: 2030.5, label: { en: "Full-time BA", vi: "BA chính thức" }, when: "2030", what: { en: "Work as a full-time BA. Write SQL to pull data myself and read API docs to describe features precisely for developers.", vi: "Làm BA chính thức. Tự viết SQL để lấy số liệu và đọc tài liệu API để mô tả tính năng thật chính xác cho đội lập trình." } },
+      { at: 2032, label: { en: "Lead whole projects", vi: "Phụ trách trọn dự án" }, when: { en: "2031 to 2032", vi: "2031 đến 2032" }, what: { en: "Lead the analysis of a whole project, from the first client meeting to final acceptance, then take on larger projects with more stakeholders.", vi: "Phụ trách phân tích cho trọn một dự án, từ buổi gặp khách đầu tiên đến khi nghiệm thu, sau đó nhận các dự án lớn hơn với nhiều bên liên quan hơn." } },
+      { at: 2033.5, label: { en: "Senior BA", vi: "Senior BA" }, when: "2033", what: { en: "Reach Senior BA: review the technical side of designs with developers and guide newer BAs.", vi: "Đạt vị trí Senior BA: cùng đội lập trình xem xét phương án kỹ thuật và hướng dẫn các BA mới vào nghề." } },
+    ],
   },
 ];
